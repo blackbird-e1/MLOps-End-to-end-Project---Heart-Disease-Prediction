@@ -54,8 +54,15 @@ accuracy = accuracy_score(y_test, y_pred)
 
 print("Accuracy:", accuracy)
 
+import os
+os.environ["MLFLOW_TRACKING_URI"] = "sqlite:///mlflow.db"
+
 # MLflow tracking
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
+
+# Create a local artifact directory
+os.makedirs("mlruns", exist_ok=True)
+
 mlflow.set_experiment("Heart_Disease_Project")
 
 with mlflow.start_run():
@@ -63,7 +70,8 @@ with mlflow.start_run():
     # mlflow.log_metric("accuracy", accuracy)
     mlflow.log_metric("accuracy", accuracy)
     mlflow.log_metric("cv_score", grid.best_score_)
-    mlflow.sklearn.log_model(best_model, "model")
+    # mlflow.sklearn.log_model(best_model, "model")
+    mlflow.sklearn.log_model(best_model, artifact_path="model")
 
 # Save model
 os.makedirs("models", exist_ok=True)
