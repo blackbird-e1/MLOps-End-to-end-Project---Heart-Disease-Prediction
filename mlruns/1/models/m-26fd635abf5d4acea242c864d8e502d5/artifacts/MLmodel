@@ -1,0 +1,23 @@
+artifact_path: file:///D:/MLOps/MLOps End-to-end Project - Heart Prediction tutorial/mlruns/1/models/m-26fd635abf5d4acea242c864d8e502d5/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.11.1
+model_id: m-26fd635abf5d4acea242c864d8e502d5
+model_size_bytes: 987
+model_uuid: m-26fd635abf5d4acea242c864d8e502d5
+prompts: null
+run_id: 07709e052a564af3bbcddc63124b3bec
+utc_time_created: '2026-05-05 06:21:11.092969'
